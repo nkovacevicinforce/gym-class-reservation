@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#185c43">
+	<title>Gym Class Reservation</title>
+	<link rel="stylesheet" href="styles.css">
+	<script src="app.js" defer></script>
+</head>
+<body>
+	<header class="site-header">
+		<div class="header-inner">
+			<svg class="gym-mark" viewBox="0 0 48 32" fill="none" aria-hidden="true">
+				<path d="M15 16h18M7 10v12m6-17v22m22-22v22m6-17v12" stroke="currentColor" stroke-width="4" stroke-linecap="square"/>
+			</svg>
+			<span>Gym Class Reservation</span>
+		</div>
+	</header>
+
+	<main>
+		<section id="booking-view" aria-labelledby="booking-title">
+			<div class="page-heading">
+				<p class="eyebrow">Group classes</p>
+				<h1 id="booking-title">Reserve your places</h1>
+			</div>
+			<form id="reservation-form" class="booking-layout" novalidate>
+				<div class="reservation-fields">
+					<div class="field">
+						<label for="class-select"><span class="field-number" aria-hidden="true">01</span>Class</label>
+						<select id="class-select" required aria-describedby="class-error">
+							<option value="">Select a class</option>
+						</select>
+						<p class="field-error" id="class-error" hidden></p>
+					</div>
+					<div class="field">
+						<label for="session-select"><span class="field-number" aria-hidden="true">02</span>Session</label>
+						<select id="session-select" required disabled aria-describedby="session-error">
+							<option value="">Select a class first</option>
+						</select>
+						<p class="field-error" id="session-error" hidden></p>
+					</div>
+					<div class="field">
+						<label for="participants-select"><span class="field-number" aria-hidden="true">03</span>Participants</label>
+						<select id="participants-select" required disabled aria-describedby="participants-error">
+							<option value="">Select a session first</option>
+						</select>
+						<p class="field-error" id="participants-error" hidden></p>
+					</div>
+				</div>
+
+				<aside class="reservation-review" aria-labelledby="review-title">
+					<h2 id="review-title">Your reservation</h2>
+					<dl class="summary">
+						<div><dt>Class</dt><dd id="summary-class">Not selected</dd></div>
+						<div><dt>Session</dt><dd id="summary-session">Not selected</dd></div>
+						<div><dt>Participants</dt><dd id="summary-participants">Not selected</dd></div>
+						<div><dt>Price per participant</dt><dd id="summary-price">&mdash;</dd></div>
+						<div class="summary-total"><dt>Total</dt><dd id="summary-total">&mdash;</dd></div>
+					</dl>
+				</aside>
+				<div class="form-action">
+					<p id="booking-status" class="booking-status" role="status">Choose a class to begin.</p>
+					<button id="confirm-button" type="submit" disabled aria-describedby="booking-status">Confirm reservation</button>
+				</div>
+			</form>
+		</section>
+
+		<section id="confirmation-view" class="confirmation" hidden aria-labelledby="confirmation-title">
+			<p class="success-label">Reservation successful</p>
+			<h1 id="confirmation-title" tabindex="-1">Your places are reserved.</h1>
+			<dl class="summary confirmed-summary">
+				<div><dt>Class</dt><dd id="confirmed-class"></dd></div>
+				<div><dt>Session</dt><dd id="confirmed-session"></dd></div>
+				<div><dt>Participants</dt><dd id="confirmed-participants"></dd></div>
+				<div><dt>Price per participant</dt><dd id="confirmed-price"></dd></div>
+				<div class="summary-total"><dt>Total</dt><dd id="confirmed-total"></dd></div>
+			</dl>
+			<p id="remaining-status" class="remaining-status"></p>
+			<button id="new-reservation-button" type="button">Start another reservation</button>
+		</section>
+		<noscript><p class="noscript-message">JavaScript is required to reserve a class.</p></noscript>
+	</main>
+	<footer class="site-footer"><span>Gym Class Reservation</span><span>No payment is collected.</span></footer>
+</body>
+</html>
